@@ -11,7 +11,7 @@ async function fetchData(applyID) {
     let params = {"id": applyID};
 
     try {
-        let requestURL = `${questionAPIURL}?id=${applyID}`;
+        let requestURL = `${apiURL}?id=${applyID}`;
         console.log(requestURL);
         let response = await fetch(requestURL, { method: "GET"});
         if (!response.ok) {
@@ -30,25 +30,37 @@ async function fetchData(applyID) {
     }
 }
 
-if (!urlParams.has("id")) {
-    applyID = "";
-    console.log("応募IDなし");
-    document.title = "応募データ確認 - ☁システム";
-    HTMLhome.style.setProperty("display", "block");
-} else {
-    applyID = urlParams.get("id");
-    console.log("応募ID", applyID);
-
-    document.title = "読み込み中… - ☁システム";
-
-    fetchData(applyID)
-    .then(Data => {
-        let applyData = Data;
-        if (applyData["status"] != "OK") {
-            document.title = "404 - ☁システム";
-            HTML404.style.setProperty("display", "block");
-        }
-        HTMLhelp.innerText = "準備が完了しました！スペースキーで問題を開始します。";
-    })
+function home() {
+    if (applyID) {
+        window.location.href = window.location.origin + window.location.pathname;
+    }
 }
 
+// 画面が読み込まれたとき
+window.addEventListener("DOMContentLoaded", function () {
+    if (!urlParams.has("id")) {
+        applyID = "";
+        console.log("応募IDなし");
+        document.title = "応募データ確認 - ☁システム";
+        HTMLhome.style.setProperty("display", "block");
+        // navbarのタイトル
+        document.querySelector(".active-control").classList.add("active");
+    } else {
+        applyID = urlParams.get("id");
+        console.log("応募ID", applyID);
+
+        document.title = "読み込み中… - ☁システム";
+
+        fetchData(applyID)
+        .then(Data => {
+            let applyData = Data;
+            if (applyData["status"] != "OK") {
+                document.title = "404 - ☁システム";
+                HTML404.style.setProperty("display", "block");
+                return
+            }
+
+            HTMLdata.style.setProperty("display", "block");
+        })
+    }
+});
