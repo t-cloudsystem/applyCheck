@@ -37,6 +37,10 @@ function home() {
     }
 }
 
+function transition() {
+    window.location.href = window.location.origin + window.location.pathname + "?id=" + document.getElementById("search-input").value;
+}
+
 // 画面が読み込まれたとき
 window.addEventListener("DOMContentLoaded", function () {
     if (!urlParams.has("id")) {
@@ -87,12 +91,47 @@ window.addEventListener("DOMContentLoaded", function () {
             applyData["data"]["advancedinfo"]["choices"].forEach(choice => {
                 HTMLadvanced1D.innerHTML += `
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminateDisabled" disabled>
-                    <label class="form-check-label" for="flexCheckIndeterminateDisabled">
-                        Disabled indeterminate checkbox
+                    <input class="form-check-input" type="checkbox" value="" ${applyData["data"]["advancedinfo"]["1"].includes(choice) ? "checked" : ""} disabled>
+                    <label class="form-check-label">
+                        ${choice}
                     </label>
                 </div>`
             });
+
+            const HTMLalert = document.querySelector(".status-alert");
+            const HTMLicon = document.querySelector(".status-icon");
+            const HTMLmessage = document.querySelector(".status");
+            switch (applyData["data"]["status"]) {
+                case "Approved":
+                    HTMLalert.classList.add("alert-success");
+                    HTMLicon.classList.add("bi-person-fill-check");
+                    HTMLmessage.innerText = "応募が承認されました！\n" +
+                                            "チャンネルでのメッセージを確認し、手続きを進めてください。";
+                    break;
+                case "Rejected":
+                    HTMLalert.classList.add("alert-warning");
+                    HTMLicon.classList.add("bi-envelope-x");
+                    HTMLmessage.innerText = "申し訳ありませんが、あなたの応募は承認されませんでした。\n" +
+                                            "チャンネルに理由を送信してありますので、ご確認ください。";
+                    break;
+                case "Confirming":
+                    HTMLalert.classList.add("alert-primary");
+                    HTMLicon.classList.add("bi-clock");
+                    HTMLmessage.innerText = "応募内容を送信し、管理者に通知しました。\n" +
+                                            "数日以内に結果を更新いたしますので、もうしばらくお待ち下さい。";
+                    break;
+                case "Incomplete":
+                    HTMLalert.classList.add("alert-danger");
+                    HTMLicon.classList.add("bi-x-circle-fill");
+                    HTMLmessage.innerText = "内容に不備があるため、応募が完了できませんでした。\n" +
+                                            "DMで理由を送信してありますので、ご確認ください。";
+                    break;
+                default:
+                    HTMLalert.classList.add("alert-dark");
+                    HTMLicon.classList.add("arrow-repeat");
+                    HTMLmessage.innerText = "応募ステータスを読み込めません。\n時間をおいてから再度試してみてください。";
+                    break;
+            }
 
             document.title = `${applyData["data"]["username"]} - ☁システム`;
             HTMLdata.style.setProperty("display", "block");

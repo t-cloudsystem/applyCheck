@@ -13,11 +13,11 @@
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #D6E6FA;">
         <div class="container-fluid">
-            <a class="navbar-brand" onclick="home();">☁システム応募内容</a>
+            <button class="navbar-brand" onclick="home();">☁システム応募内容</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active-control" aria-current="page" href="#">トップ</a>
+                        <button class="nav-link active-control" aria-current="page" onclick="home();">トップ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
@@ -25,9 +25,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="応募IDを入力" aria-label="Search">
-                    <input type="button" class="btn btn-outline-primary" onclick="location.href='./index.html'"
-                        value="検索">
+                    <input class="form-control me-2 search-input" type="search" placeholder="応募IDを入力" aria-label="Search">
+                    <input type="button" class="btn btn-outline-primary" onclick="transition()" value="検索">
                 </form>
             </div>
         </div>
@@ -36,10 +35,10 @@
         <div id="data" style="display: none;">
             <h1>応募内容確認</h1>
 
-            <div class="alert alert-primary d-flex align-items-center" role="alert">
-                <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
-                <div>
-                    ここに応募ステータスを表示します
+            <div class="alert status-alert d-flex align-items-center" role="alert">
+                <i class="bi status-icon flex-shrink-0 me-2"></i>
+                <div class="status">
+                    メッセージを読み込み中…
                 </div>
             </div>
 
@@ -55,15 +54,15 @@
                 <tbody>
                     <tr>
                         <th scope="row">応募ID（認証コード）</th>
-                        <td class="data-id">123456</td>
+                        <td class="data-id"></td>
                     </tr>
                     <tr>
                         <th scope="row">送信日時</th>
-                        <td class="data-timestamp">2024/07/06 22:39</td>
+                        <td class="data-timestamp"></td>
                     </tr>
                     <tr>
                         <th scope="row">ユーザー名</th>
-                        <td class="data-user">takechi-scratch</td>
+                        <td class="data-user"></td>
                     </tr>
                     <tr>
                         <th scope="row">質問用チャット</th>
@@ -84,7 +83,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">希望する役職</th>
-                        <td class="data-desiredRole">管理者</td>
+                        <td class="data-desiredRole"></td>
                     </tr>
                     <tr>
                         <th class="label-advanced-1" scope="row"></th>
@@ -111,11 +110,18 @@
         </div>
         <div id="home" style="display: none;">
             <h1>応募内容確認</h1>
-            <p>右上から、応募IDを入力するとデータを確認できます</p>
+            <p>右上から、応募IDを入力するとデータを確認できます。</p>
         </div>
         <div id="404" style="display: none;">
-            <h1>データが見つかりません</h1>
-            <p>応募IDを再度確認してください</p>
+            <h1>応募内容確認</h1>
+
+            <div class="alert alert-dark d-flex align-items-center" role="alert">
+                <i class="bi status-icon flex-shrink-0 me-2"></i>
+                <div>
+                    応募データが見つかりませんでした。IDを再度確認してください。
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
