@@ -65,11 +65,34 @@ window.addEventListener("DOMContentLoaded", function () {
 
             document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
             document.querySelector(".data-timestamp").innerText = applyData["data"]["timestamp"];
-            document.querySelector(".data-discord").innerHTML = `<a href="https://discord.com/channels/1210843458932178994/${applyData["data"]["channnelID"]}">${applyData["data"]["channnelID"]}</a>`;
+            document.querySelector(".data-discord").innerHTML = `<a href="https://discord.com/channels/1210843458932178994/${applyData["data"]["channnelID"]}">Discord</a>`;
             document.querySelector(".data-user").innerText = applyData["data"]["username"];
             
-            document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
-            document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
+            document.querySelector(".data-desiredRole").innerText = applyData["data"]["desiredRole"];
+            document.querySelector(".data-message").innerText = applyData["data"]["message"];
+
+            const HTMLadvanced1L = document.querySelector(".label-advanced-1");
+            const HTMLadvanced1D = document.querySelector(".data-advanced-1");
+            const HTMLadvanced2L = document.querySelector(".label-advanced-2");
+
+            if (applyData["data"]["desiredRole"] == "管理者") {
+                HTMLadvanced1L.innerText = "得意分野";
+                HTMLadvanced2L.innerText = "自己アピール";
+            } else {
+                HTMLadvanced1L.innerText = "使用予定の機能";
+                HTMLadvanced2L.innerText = "作成中の作品について";
+            }
+            document.querySelector(".data-advanced-2").innerText = applyData["data"]["advancedinfo"]["2"];
+
+            applyData["data"]["advancedinfo"]["choices"].forEach(choice => {
+                HTMLadvanced1D.innerHTML += `
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminateDisabled" disabled>
+                    <label class="form-check-label" for="flexCheckIndeterminateDisabled">
+                        Disabled indeterminate checkbox
+                    </label>
+                </div>`
+            });
 
             document.title = `${applyData["data"]["username"]} - ☁システム`;
             HTMLdata.style.setProperty("display", "block");
