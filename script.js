@@ -41,7 +41,7 @@ function transition() {
     
 }
 
-document.getElementById(".transition").addEventListener("submit", function(e){
+document.getElementById("transition").addEventListener("submit", function(e){
     e.preventDefault();
 
     window.location.href = window.location.origin + window.location.pathname +
