@@ -45,7 +45,7 @@ document.getElementById("transition").addEventListener("submit", function(e){
     e.preventDefault();
 
     window.location.href = window.location.origin + window.location.pathname +
-                        "?id=" + document.getquerySelector(".search-input").value;
+                        "?id=" + document.querySelector(".search-input").value;
 });
 
 // 画面が読み込まれたとき
