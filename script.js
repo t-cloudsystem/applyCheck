@@ -38,8 +38,15 @@ function home() {
 }
 
 function transition() {
-    window.location.href = window.location.origin + window.location.pathname + "?id=" + document.getElementById("search-input").value;
+    
 }
+
+document.getElementById(".transition").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    window.location.href = window.location.origin + window.location.pathname +
+                        "?id=" + document.getquerySelector(".search-input").value;
+});
 
 // 画面が読み込まれたとき
 window.addEventListener("DOMContentLoaded", function () {
@@ -92,9 +99,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 HTMLadvanced1D.innerHTML += `
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" ${applyData["data"]["advancedinfo"]["1"].includes(choice) ? "checked" : ""} disabled>
-                    <label class="form-check-label">
-                        ${choice}
-                    </label>
+                    <label>${choice}</label>
                 </div>`
             });
 
@@ -128,7 +133,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     break;
                 default:
                     HTMLalert.classList.add("alert-dark");
-                    HTMLicon.classList.add("arrow-repeat");
+                    HTMLicon.classList.add("bi-arrow-repeat");
                     HTMLmessage.innerText = "応募ステータスを読み込めません。\n時間をおいてから再度試してみてください。";
                     break;
             }
