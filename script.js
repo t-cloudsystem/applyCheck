@@ -1,4 +1,4 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbw4ziMyOQPdPicmobauerKrxzFicWAwKmDVya6ZUxiuTrLXwFDkmKBHYKctCZLYXxJwSQ/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbxC5BR7kP_w402vW3UaKF_wHIXgROj0BDyu1DU0HD8CT3MM-GA852CUi4LfA9Cx04HlEw/exec";
 const urlParams = new URLSearchParams(window.location.search);
 
 const HTMLhome = document.getElementById("home");

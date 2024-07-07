@@ -17,7 +17,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <!-- GASをかませてアクティブか判定 -->
                         <a class="nav-link active-control" aria-current="page" href="#">トップ</a>
                     </li>
                     <li class="nav-item">
@@ -37,6 +36,13 @@
         <div id="data" style="display: none;">
             <h1>応募内容確認</h1>
 
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                <div>
+                    ここに内容が表示されます
+                </div>
+            </div>
+
             <h2>基本情報</h2>
 
             <table class="table table-striped">
@@ -48,15 +54,41 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <th scope="row">応募ID（認証コード）</th>
+                        <td class="data-id">123456</td>
+                    </tr>
+                    <tr>
                         <th scope="row">送信日時</th>
-                        <td>2024/07/06 22:39</td>
+                        <td class="data-timestamp">2024/07/06 22:39</td>
                     </tr>
                     <tr>
                         <th scope="row">ユーザー名</th>
-                        <td>takechi-scratch</td>
+                        <td class="data-user">takechi-scratch</td>
                     </tr>
                 </tbody>
             </table>
+
+            <h2>詳細情報</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 20%"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="label-advanced-1" scope="row"></th>
+                        <td class="data-advanced-1"></td>
+                    </tr>
+                    <tr>
+                        <th class="label-advanced-2" scope="row"></th>
+                        <td class="data-advanced-2"></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
         <div id="home" style="display: none;">
             <h1>応募内容確認</h1>
