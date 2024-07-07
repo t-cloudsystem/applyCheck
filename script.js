@@ -1,9 +1,10 @@
-const apiURL = "https://script.google.com/macros/s/AKfycbxC5BR7kP_w402vW3UaKF_wHIXgROj0BDyu1DU0HD8CT3MM-GA852CUi4LfA9Cx04HlEw/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbxoR1Z0IaVjO2maGa73WpYeJZ1HP6aAlO4IVtryAFGzbDA-DoSDSkMuhjO7HOnPpUp6RA/exec";
 const urlParams = new URLSearchParams(window.location.search);
 
 const HTMLhome = document.getElementById("home");
 const HTMLdata = document.getElementById("data");
 const HTML404 = document.getElementById("404");
+const HTMLloading = document.getElementById("loading");
 
 let applyID
 
@@ -49,17 +50,28 @@ window.addEventListener("DOMContentLoaded", function () {
         applyID = urlParams.get("id");
         console.log("応募ID", applyID);
 
+        HTMLloading.style.setProperty("display", "block");
         document.title = "読み込み中… - ☁システム";
 
         fetchData(applyID)
         .then(Data => {
             let applyData = Data;
+            HTMLloading.style.setProperty("display", "none");
             if (applyData["status"] != "OK") {
                 document.title = "404 - ☁システム";
                 HTML404.style.setProperty("display", "block");
                 return
             }
 
+            document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
+            document.querySelector(".data-timestamp").innerText = applyData["data"]["timestamp"];
+            document.querySelector(".data-discord").innerHTML = `<a href="https://discord.com/channels/1210843458932178994/${applyData["data"]["channnelID"]}">${applyData["data"]["channnelID"]}</a>`;
+            document.querySelector(".data-user").innerText = applyData["data"]["username"];
+            
+            document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
+            document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
+
+            document.title = `${applyData["data"]["username"]} - ☁システム`;
             HTMLdata.style.setProperty("display", "block");
         })
     }

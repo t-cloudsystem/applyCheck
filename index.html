@@ -39,7 +39,7 @@
             <div class="alert alert-primary d-flex align-items-center" role="alert">
                 <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
                 <div>
-                    ここに内容が表示されます
+                    ここに応募ステータスを表示します
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 20%"></th>
+                        <th scope="col" style="width: 25%"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -65,6 +65,10 @@
                         <th scope="row">ユーザー名</th>
                         <td class="data-user">takechi-scratch</td>
                     </tr>
+                    <tr>
+                        <th scope="row">質問用チャンネル</th>
+                        <td class="data-discord"></td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -73,11 +77,15 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col" style="width: 20%"></th>
+                        <th scope="col" style="width: 25%"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <th scope="row">希望する役職</th>
+                        <td class="data-desiredRole">管理者</td>
+                    </tr>
                     <tr>
                         <th class="label-advanced-1" scope="row"></th>
                         <td class="data-advanced-1"></td>
@@ -89,6 +97,13 @@
                 </tbody>
             </table>
 
+        </div>
+        <div id="loading" style="display: none;">
+            <h1>応募内容確認</h1>
+            <div class="d-flex align-items-center">
+                <p>読み込み中です…</p>
+                <div class="spinner-border ms-auto text-primary" role="status" aria-hidden="true"></div>
+            </div>
         </div>
         <div id="home" style="display: none;">
             <h1>応募内容確認</h1>
