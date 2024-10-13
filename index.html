@@ -8,13 +8,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>応募データ確認 - ☁システム</title>
+
+    <meta property="og:title" content="管理者応募データ確認" />
+    <meta property="og:description" content="たーけクラウドシステムの管理者に応募した際のデータを確認します。" />
+    <meta property="og:image" content="./thumbnail.png" />
+    <meta property="og:url" content="https://t-cloudsystem.github.io/applyCheck/" />
+    <meta property="og:site_name" content="管理者応募データ確認" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #D6E6FA;">
         <div class="container-fluid">
             <a class="navbar-brand" onclick="home();">☁システム応募内容</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,7 +39,8 @@
                     </li>
                 </ul>
                 <form id="transition" class="d-flex" role="search">
-                    <input class="form-control me-2 search-input" type="search" placeholder="応募IDを入力" aria-label="Search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="応募IDを入力"
+                        aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit" style="white-space: nowrap;">移動</button>
                 </form>
             </div>
@@ -128,10 +140,9 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous">
-    </script>
-    <script src="/applyCheck/script.js"></script>
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+        </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

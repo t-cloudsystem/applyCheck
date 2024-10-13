@@ -9,8 +9,6 @@ const HTMLloading = document.getElementById("loading");
 let applyID
 
 async function fetchData(applyID) {
-    let params = {"id": applyID};
-
     try {
         let requestURL = `${apiURL}?id=${applyID}`;
         console.log(requestURL);
@@ -35,10 +33,6 @@ function home() {
     if (applyID) {
         window.location.href = window.location.origin + window.location.pathname;
     }
-}
-
-function transition() {
-    
 }
 
 document.getElementById("transition").addEventListener("submit", function(e){
@@ -78,7 +72,7 @@ window.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".data-timestamp").innerText = applyData["data"]["timestamp"];
             document.querySelector(".data-discord").innerHTML = `<a href="https://discord.com/channels/1210843458932178994/${applyData["data"]["channnelID"]}">Discord</a>`;
             document.querySelector(".data-user").innerText = applyData["data"]["username"];
-            
+
             document.querySelector(".data-desiredRole").innerText = applyData["data"]["desiredRole"];
             document.querySelector(".data-message").innerText = applyData["data"]["message"];
 
