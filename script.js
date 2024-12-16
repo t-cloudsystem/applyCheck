@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".data-id").innerText = applyData["data"]["applyID"];
             document.querySelector(".data-timestamp").innerText = applyData["data"]["timestamp"];
             document.querySelector(".data-discord").innerHTML = `<a href="https://discord.com/channels/1210843458932178994/${applyData["data"]["channnelID"]}">Discord</a>`;
-            document.querySelector(".data-user").innerText = applyData["data"]["username"];
+            document.querySelector(".data-user").innerHTML = `<a href="https://scratch.mit.edu/users/${applyData["data"]["username"]}">${applyData["data"]["username"]}</a>`;
 
             document.querySelector(".data-desiredRole").innerText = applyData["data"]["desiredRole"];
             document.querySelector(".data-message").innerText = applyData["data"]["message"];
